@@ -1,0 +1,36 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="{{ backHref }}">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-l">{{ title }}</h1>
+      <p class="nhsuk-body">Every time this care plan is viewed or edited, it is recorded here — by
+      design, to make access transparent and accountable.</p>
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Access events</caption>
+        <thead class="nhsuk-table__head">
+          <tr>
+            <th class="nhsuk-table__header" scope="col">When</th>
+            <th class="nhsuk-table__header" scope="col">Who</th>
+            <th class="nhsuk-table__header" scope="col">Role</th>
+            <th class="nhsuk-table__header" scope="col">Action</th>
+            <th class="nhsuk-table__header" scope="col">Access</th>
+          </tr>
+        </thead>
+        <tbody class="nhsuk-table__body">
+          {% for e in entries %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{ e.created_at }}</td>
+              <td class="nhsuk-table__cell">{{ e.full_name or 'Unknown' }}{% if e.organisation %}<br><span class="nhsuk-u-secondary-text-color">{{ e.organisation }}</span>{% endif %}</td>
+              <td class="nhsuk-table__cell">{{ e.user_role }}</td>
+              <td class="nhsuk-table__cell">{{ e.action | replace("_", " ") }}</td>
+              <td class="nhsuk-table__cell">{% if e.break_glass %}<strong>break-glass</strong>{% else %}—{% endif %}</td>
+            </tr>
+          {% else %}
+            <tr class="nhsuk-table__row"><td class="nhsuk-table__cell" colspan="5">No access recorded yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

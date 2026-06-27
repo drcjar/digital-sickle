@@ -1,0 +1,33 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="/patients">Back to search</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ patient.first_name }} {{ patient.last_name }}</h1>
+      <p class="nhsuk-body">NHS number {{ patient.nhs_number }} · DOB {{ patient.date_of_birth }} · {{ patient.scd_genotype }}</p>
+
+      <p class="nhsuk-body">
+        <a class="nhsuk-button" href="/patients/{{ patient.id }}/crisis">Open acute crisis view</a>
+      </p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a class="nhsuk-link" href="/patients/{{ patient.id }}/care-plan">Edit care plan</a></li>
+        <li><a class="nhsuk-link" href="/patients/{{ patient.id }}/access-log">Access log for this patient</a></li>
+      </ul>
+
+      <h2 class="nhsuk-heading-m">Documents</h2>
+      {% if documents.length %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          {% for d in documents %}<li><a class="nhsuk-link" href="/documents/{{ d.id }}">{{ d.original_filename }}</a></li>{% endfor %}
+        </ul>
+      {% else %}<p class="nhsuk-body">No documents.</p>{% endif %}
+      <form method="post" action="/patients/{{ patient.id }}/documents" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="document">Upload a care plan PDF</label>
+          <input class="nhsuk-file-upload" id="document" name="document" type="file" accept="application/pdf" />
+        </div>
+        <button class="nhsuk-button nhsuk-button--secondary" type="submit">Upload</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Accessibility</h1>
+      <p class="nhsuk-body">
+        This prototype is built with the NHS design system, which is designed to meet
+        <strong>WCAG 2.2 AA</strong>. Pages are server-rendered and usable without JavaScript;
+        the acute crisis view works with JavaScript turned off.
+      </p>
+      <p class="nhsuk-body">
+        We aim for semantic headings, visible focus, sufficient colour contrast, labelled form
+        fields and an error-summary pattern on forms. As a prototype, it has not yet had a full
+        independent audit or screen-reader pass — that would form part of the production build.
+      </p>
+    </div>
+  </div>
+{% endblock %}

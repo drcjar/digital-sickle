@@ -1,0 +1,18 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Shared with me</h1>
+      <p class="nhsuk-body">Care plans that someone has chosen to share with you.</p>
+      {% if patients.length %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          {% for p in patients %}
+            <li><a class="nhsuk-link" href="/shared/{{ p.id }}">{{ p.first_name }} {{ p.last_name }}</a> ({{ p.relationship }})</li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="nhsuk-body">No one has shared a care plan with you yet.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

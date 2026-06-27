@@ -1,0 +1,42 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ title }}</h1>
+      {% if role == 'clinician' %}
+        <div class="nhsuk-inset-text"><p>Healthcare professionals must register with an <strong>nhs.net</strong> email address. In production this would be NHS Care Identity (CIS2) sign-in.</p></div>
+      {% endif %}
+      {% include "partials/error-summary.njk" %}
+      <form method="post" action="/register/{{ role }}" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group {% if errors.full_name %}nhsuk-form-group--error{% endif %}">
+          <label class="nhsuk-label" for="full_name">Full name</label>
+          {% if errors.full_name %}<span class="nhsuk-error-message">{{ errors.full_name }}</span>{% endif %}
+          <input class="nhsuk-input" id="full_name" name="full_name" type="text" value="{{ values.full_name or '' }}" />
+        </div>
+        <div class="nhsuk-form-group {% if errors.email %}nhsuk-form-group--error{% endif %}">
+          <label class="nhsuk-label" for="email">Email address</label>
+          {% if errors.email %}<span class="nhsuk-error-message">{{ errors.email }}</span>{% endif %}
+          <input class="nhsuk-input" id="email" name="email" type="email" value="{{ values.email or '' }}" />
+        </div>
+        {% if role == 'clinician' %}
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="job_title">Job title</label>
+            <input class="nhsuk-input" id="job_title" name="job_title" type="text" value="{{ values.job_title or '' }}" />
+          </div>
+          <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="organisation">Organisation / trust</label>
+            <input class="nhsuk-input" id="organisation" name="organisation" type="text" value="{{ values.organisation or '' }}" />
+          </div>
+        {% endif %}
+        <div class="nhsuk-form-group {% if errors.password %}nhsuk-form-group--error{% endif %}">
+          <label class="nhsuk-label" for="password">Password</label>
+          <span class="nhsuk-hint">At least 8 characters.</span>
+          {% if errors.password %}<span class="nhsuk-error-message">{{ errors.password }}</span>{% endif %}
+          <input class="nhsuk-input" id="password" name="password" type="password" autocomplete="new-password" />
+        </div>
+        <button class="nhsuk-button" type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Prototype runtime data (synthetic DB + uploads are generated locally)
+prototype/data/
+prototype/.env
+
+# Build output
+website/_site/
+
+# Third-party publications are NOT redistributed here (copyright) — see docs/adr/0004
+publications/*.pdf
+
+# Logs & OS cruft
+*.log
+.DS_Store

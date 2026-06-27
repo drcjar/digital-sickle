@@ -1,0 +1,15 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Create an account</h1>
+      <p class="nhsuk-body">Choose the type of account you need.</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><a class="nhsuk-link" href="/register/patient">I am a patient</a></li>
+        <li><a class="nhsuk-link" href="/register/delegate">I am a nominated delegate (e.g. next of kin)</a></li>
+        <li><a class="nhsuk-link" href="/register/clinician">I am a healthcare professional (needs an nhs.net email)</a></li>
+      </ul>
+      <p class="nhsuk-body"><a class="nhsuk-link" href="/login">Back to sign in</a></p>
+    </div>
+  </div>
+{% endblock %}

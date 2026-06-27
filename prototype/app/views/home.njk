@@ -1,0 +1,36 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-xl">Digital Sickle Cell Care Plan</h1>
+      <p class="nhsuk-lead-paragraph">
+        A personalised, portable care plan for people with sickle cell disease — so that during an
+        acute painful crisis, the right care can be given quickly, without having to re-narrate a
+        complex history while in severe pain.
+      </p>
+
+      <div class="nhsuk-warning-callout">
+        <h2 class="nhsuk-warning-callout__label"><span role="text"><span class="nhsuk-u-visually-hidden">Important: </span>This is a prototype</span></h2>
+        <p>It runs on <strong>synthetic (made-up) data</strong> to demonstrate the service. It is
+        not a medical device and must not be used with real patient information.</p>
+      </div>
+
+      <h2 class="nhsuk-heading-m">Sign in</h2>
+      <p class="nhsuk-body">There are three types of account in this prototype:</p>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li><strong>Healthcare professionals</strong> — sign in with an <code>nhs.net</code> email.</li>
+        <li><strong>Patients</strong> — sign in with email and password.</li>
+        <li><strong>Nominated delegates</strong> (e.g. next of kin) — sign in with email and password.</li>
+      </ul>
+      <p class="nhsuk-body">
+        <a class="nhsuk-button" href="/login" role="button">Sign in</a>
+        &nbsp;
+        <a class="nhsuk-link" href="/register">Create an account</a>
+      </p>
+
+      <p class="nhsuk-body-s">
+        A project of the NHS Race &amp; Health Observatory. <a class="nhsuk-link" href="/about">About this prototype</a>.
+      </p>
+    </div>
+  </div>
+{% endblock %}

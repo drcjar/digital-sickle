@@ -1,0 +1,18 @@
+{
+  "name": "digital-sickle-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Project website for the NHS Race & Health Observatory Digital Sickle Cell Care Plan.",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  },
+  "dependencies": {
+    "nhsuk-frontend": "^10.3.1"
+  }
+}

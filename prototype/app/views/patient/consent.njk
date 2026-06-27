@@ -1,0 +1,26 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="/me">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Research consent</h1>
+      <p class="nhsuk-body">Your care comes first. These choices are optional and you can change
+      them at any time. They help improve sickle cell care for everyone.</p>
+      <form method="post" action="/me/consent">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-checkboxes">
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="contact" name="consent_contact_research" type="checkbox" value="yes" {% if consent and consent.consent_contact_research %}checked{% endif %} />
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="contact">I am happy to be contacted about research.</label>
+          </div>
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="secondary" name="consent_secondary_use" type="checkbox" value="yes" {% if consent and consent.consent_secondary_use %}checked{% endif %} />
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="secondary">I consent to my data being used (in a secondary, governed way) to improve services and care.</label>
+          </div>
+        </div>
+        <button class="nhsuk-button nhsuk-u-margin-top-4" type="submit">Save my choices</button>
+      </form>
+      {% if consent %}<p class="nhsuk-body-s">Last recorded {{ consent.recorded_at }} (wording {{ consent.wording_version }}).</p>{% endif %}
+    </div>
+  </div>
+{% endblock %}

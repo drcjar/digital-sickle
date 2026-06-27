@@ -1,0 +1,22 @@
+/* Small additions on top of nhsuk-frontend. */
+.hero {
+  background: #005eb8;
+  color: #fff;
+  padding: 32px 0;
+  margin-bottom: 24px;
+}
+.hero .nhsuk-width-container {
+  max-width: none;
+}
+.hero h1 {
+  color: #fff;
+}
+.callout-stat {
+  border-left: 8px solid #005eb8;
+  padding-left: 16px;
+  margin: 16px 0;
+}
+.nhsuk-navigation__link[aria-current='page'] {
+  font-weight: 700;
+  text-decoration: underline;
+}

@@ -1,0 +1,56 @@
+{% extends "layouts/base.njk" %}
+{% macro duration(s) %}{% if s != null %}{{ (s // 60) }}m {{ (s % 60) }}s{% else %}active{% endif %}{% endmacro %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-l">Audit &amp; accountability</h1>
+      <p class="nhsuk-body">A record of who logged on, when, and for how long — and the actions
+      taken. In production this supports compliance monitoring at individual, organisation and
+      system level.</p>
+
+      <h2 class="nhsuk-heading-m">Sessions — who logged on and for how long</h2>
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head"><tr>
+          <th class="nhsuk-table__header" scope="col">User</th>
+          <th class="nhsuk-table__header" scope="col">Role</th>
+          <th class="nhsuk-table__header" scope="col">Logged in</th>
+          <th class="nhsuk-table__header" scope="col">Logged out</th>
+          <th class="nhsuk-table__header" scope="col">Duration</th>
+        </tr></thead>
+        <tbody class="nhsuk-table__body">
+          {% for s in sessions %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{ s.full_name or 'Unknown' }}</td>
+              <td class="nhsuk-table__cell">{{ s.role }}</td>
+              <td class="nhsuk-table__cell">{{ s.login_at }}</td>
+              <td class="nhsuk-table__cell">{{ s.logout_at or '—' }}</td>
+              <td class="nhsuk-table__cell">{{ duration(s.duration_seconds) }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2 class="nhsuk-heading-m">Recent actions</h2>
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head"><tr>
+          <th class="nhsuk-table__header" scope="col">When</th>
+          <th class="nhsuk-table__header" scope="col">Who</th>
+          <th class="nhsuk-table__header" scope="col">Action</th>
+          <th class="nhsuk-table__header" scope="col">Patient</th>
+          <th class="nhsuk-table__header" scope="col">Access</th>
+        </tr></thead>
+        <tbody class="nhsuk-table__body">
+          {% for e in events %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{ e.created_at }}</td>
+              <td class="nhsuk-table__cell">{{ e.full_name or 'Unknown' }} ({{ e.user_role }})</td>
+              <td class="nhsuk-table__cell">{{ e.action | replace("_", " ") }}</td>
+              <td class="nhsuk-table__cell">{{ e.target_patient_id or '—' }}</td>
+              <td class="nhsuk-table__cell">{% if e.break_glass %}<strong>break-glass</strong>{% else %}—{% endif %}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

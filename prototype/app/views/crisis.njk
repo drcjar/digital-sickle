@@ -1,0 +1,82 @@
+{% extends "layouts/base.njk" %}
+{% macro field(label, value) %}
+  {% if value %}<p class="nhsuk-body nhsuk-u-margin-bottom-1"><strong>{{ label }}:</strong> {{ value }}</p>{% endif %}
+{% endmacro %}
+{% block beforeContent %}
+  <a class="nhsuk-back-link nhsuk-u-margin-top-4" href="{{ backHref }}">Back</a>
+{% endblock %}
+{% block content %}
+  <p class="crisis-watermark no-print">Prototype — synthetic data</p>
+
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+      <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-2">Acute crisis care plan</h1>
+
+      <!-- Identity + immediate red flags -->
+      <div class="crisis-block crisis-danger">
+        <h2 class="nhsuk-heading-m">{{ patient.first_name }} {{ patient.last_name }}</h2>
+        {{ field('NHS number (synthetic)', patient.nhs_number) }}
+        {{ field('Date of birth', patient.date_of_birth) }}
+        {{ field('Sickle cell genotype', patient.scd_genotype) }}
+        {% if patient.is_pregnant %}
+          <p class="crisis-key" style="color:#d5281b">⚠ PREGNANT — link obstetrics &amp; haematology. {{ patient.pregnancy_notes }}</p>
+        {% endif %}
+        {% if plan.allergies %}<p class="crisis-key" style="color:#d5281b">Allergies: {{ plan.allergies }}</p>{% endif %}
+        {% if plan.adverse_reactions %}{{ field('Adverse reactions', plan.adverse_reactions) }}{% endif %}
+      </div>
+
+      <!-- Analgesia: the thing the ED needs first -->
+      <div class="crisis-block">
+        <h2 class="nhsuk-heading-m">Analgesia &amp; opioid tolerance</h2>
+        {% if plan.opioid_tolerance %}<p class="crisis-key">{{ plan.opioid_tolerance }}</p>{% endif %}
+        {% if plan.first_line_drug %}
+          <p class="crisis-key">First line: {{ plan.first_line_drug }} {{ plan.first_line_dose }} {{ plan.first_line_route }}</p>
+        {% endif %}
+        {{ field('Breakthrough', (plan.breakthrough_drug or '') + ' ' + (plan.breakthrough_dose or '')) }}
+        {{ field('Maximum in 24h', plan.max_24h_dose) }}
+        {% if plan.drugs_to_avoid %}<p class="nhsuk-body" style="color:#d5281b"><strong>Avoid:</strong> {{ plan.drugs_to_avoid }}</p>{% endif %}
+        {{ field('Usual home analgesia', plan.usual_analgesia) }}
+      </div>
+
+      <!-- Baseline observations: judge deviation instantly -->
+      <div class="crisis-block">
+        <h2 class="nhsuk-heading-m">Baseline observations (this patient's normal)</h2>
+        <dl class="nhsuk-summary-list">
+          {% if plan.baseline_bp %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">BP</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_bp }}</dd></div>{% endif %}
+          {% if plan.baseline_hr %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">Heart rate</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_hr }}</dd></div>{% endif %}
+          {% if plan.baseline_spo2 %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">SpO₂</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_spo2 }}</dd></div>{% endif %}
+          {% if plan.baseline_resp_rate %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">Resp rate</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_resp_rate }}</dd></div>{% endif %}
+          {% if plan.baseline_temp %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">Temperature</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_temp }}</dd></div>{% endif %}
+          {% if plan.baseline_hb %}<div class="nhsuk-summary-list__row"><dt class="nhsuk-summary-list__key">Haemoglobin</dt><dd class="nhsuk-summary-list__value">{{ plan.baseline_hb }}</dd></div>{% endif %}
+        </dl>
+      </div>
+
+      <!-- Escalation + people -->
+      <div class="crisis-block">
+        <h2 class="nhsuk-heading-m">Escalation &amp; contacts</h2>
+        {{ field('Escalation plan', plan.escalation_plan) }}
+        {{ field('Named consultant', plan.named_consultant) }}
+        {{ field('Contact', plan.named_consultant_contact) }}
+        {{ field('Preferred hospital', plan.preferred_hospital) }}
+        {% if contacts and contacts.length %}
+          <p class="nhsuk-body nhsuk-u-margin-bottom-1"><strong>Emergency contacts:</strong></p>
+          <ul class="nhsuk-list nhsuk-list--bullet">
+            {% for c in contacts %}<li>{{ c.name }} ({{ c.relationship }}) — {{ c.phone }}</li>{% endfor %}
+          </ul>
+        {% endif %}
+        {{ field('Other notes', plan.additional_notes) }}
+      </div>
+
+      {% if plan %}
+        <p class="nhsuk-body-s">Last updated {{ plan.updated_at }} (version {{ plan.version }}).
+        {% if documents and documents.length %}
+          Attached plan: <a class="nhsuk-link" href="/documents/{{ documents[0].id }}">{{ documents[0].original_filename }}</a>.
+        {% endif %}</p>
+      {% else %}
+        <p class="nhsuk-body">No care plan has been completed yet.</p>
+      {% endif %}
+
+      <button class="nhsuk-button nhsuk-button--secondary no-print" onclick="window.print()">Print this plan</button>
+    </div>
+  </div>
+{% endblock %}

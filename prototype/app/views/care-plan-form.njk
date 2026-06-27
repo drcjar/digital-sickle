@@ -1,0 +1,57 @@
+{% extends "layouts/base.njk" %}
+{% macro textarea(name, label, plan, hint) %}
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="{{ name }}">{{ label }}</label>
+    {% if hint %}<span class="nhsuk-hint">{{ hint }}</span>{% endif %}
+    <textarea class="nhsuk-textarea" id="{{ name }}" name="{{ name }}" rows="2">{{ plan[name] or '' }}</textarea>
+  </div>
+{% endmacro %}
+{% macro input(name, label, plan) %}
+  <div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="{{ name }}">{{ label }}</label>
+    <input class="nhsuk-input" id="{{ name }}" name="{{ name }}" type="text" value="{{ plan[name] or '' }}" />
+  </div>
+{% endmacro %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="{{ backHref }}">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Care plan — {{ patient.first_name }} {{ patient.last_name }}</h1>
+      <form method="post" action="{{ action }}" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+
+        <h2 class="nhsuk-heading-m">Analgesia</h2>
+        {{ textarea('opioid_tolerance', 'Opioid tolerance', plan) }}
+        {{ input('first_line_drug', 'First-line drug', plan) }}
+        {{ input('first_line_dose', 'First-line dose', plan) }}
+        {{ input('first_line_route', 'First-line route', plan) }}
+        {{ input('breakthrough_drug', 'Breakthrough drug', plan) }}
+        {{ input('breakthrough_dose', 'Breakthrough dose', plan) }}
+        {{ textarea('max_24h_dose', 'Maximum dose in 24 hours', plan) }}
+        {{ textarea('drugs_to_avoid', 'Drugs to avoid', plan) }}
+        {{ textarea('usual_analgesia', 'Usual home analgesia', plan) }}
+
+        <h2 class="nhsuk-heading-m">Safety</h2>
+        {{ textarea('allergies', 'Allergies', plan) }}
+        {{ textarea('adverse_reactions', 'Adverse reactions', plan) }}
+
+        <h2 class="nhsuk-heading-m">Baseline observations</h2>
+        {{ input('baseline_bp', 'Blood pressure', plan) }}
+        {{ input('baseline_hr', 'Heart rate', plan) }}
+        {{ input('baseline_spo2', 'SpO₂', plan) }}
+        {{ input('baseline_resp_rate', 'Respiratory rate', plan) }}
+        {{ input('baseline_temp', 'Temperature', plan) }}
+        {{ input('baseline_hb', 'Haemoglobin baseline', plan) }}
+
+        <h2 class="nhsuk-heading-m">Escalation &amp; contacts</h2>
+        {{ textarea('escalation_plan', 'Escalation plan', plan) }}
+        {{ input('named_consultant', 'Named consultant', plan) }}
+        {{ input('named_consultant_contact', 'Consultant contact', plan) }}
+        {{ input('preferred_hospital', 'Preferred hospital', plan) }}
+        {{ textarea('additional_notes', 'Additional notes', plan) }}
+
+        <button class="nhsuk-button" type="submit">Save care plan</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

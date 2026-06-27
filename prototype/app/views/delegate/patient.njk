@@ -1,0 +1,17 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="/shared">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">{{ patient.first_name }} {{ patient.last_name }}</h1>
+      <div class="nhsuk-inset-text"><p>You have read-only access as a nominated delegate.</p></div>
+      <p class="nhsuk-body"><a class="nhsuk-button" href="/shared/{{ patient.id }}/crisis">Open acute crisis view</a></p>
+      {% if documents.length %}
+        <h2 class="nhsuk-heading-m">Documents</h2>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          {% for d in documents %}<li><a class="nhsuk-link" href="/documents/{{ d.id }}">{{ d.original_filename }}</a></li>{% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

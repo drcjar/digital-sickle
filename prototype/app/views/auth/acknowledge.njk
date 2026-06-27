@@ -1,0 +1,23 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Before you start</h1>
+      <div class="nhsuk-warning-callout">
+        <h2 class="nhsuk-warning-callout__label"><span role="text"><span class="nhsuk-u-visually-hidden">Important: </span>This is a prototype</span></h2>
+        <p>This service runs on <strong>synthetic data only</strong>. It is not a medical device.
+        Please do not enter any real patient-identifiable information.</p>
+      </div>
+      <form method="post" action="/acknowledge">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-checkboxes">
+          <div class="nhsuk-checkboxes__item">
+            <input class="nhsuk-checkboxes__input" id="ack" name="ack" type="checkbox" value="yes" required />
+            <label class="nhsuk-label nhsuk-checkboxes__label" for="ack">I understand this is a prototype with synthetic data.</label>
+          </div>
+        </div>
+        <button class="nhsuk-button nhsuk-u-margin-top-4" type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Find a patient</h1>
+      <form method="get" action="/patients">
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="q">Search by name or NHS number</label>
+          <input class="nhsuk-input" id="q" name="q" type="search" value="{{ q }}" />
+        </div>
+        <button class="nhsuk-button nhsuk-button--secondary" type="submit">Search</button>
+      </form>
+
+      <table class="nhsuk-table">
+        <caption class="nhsuk-table__caption">Patients</caption>
+        <thead class="nhsuk-table__head"><tr>
+          <th class="nhsuk-table__header" scope="col">Name</th>
+          <th class="nhsuk-table__header" scope="col">NHS number</th>
+          <th class="nhsuk-table__header" scope="col">Genotype</th>
+          <th class="nhsuk-table__header" scope="col"></th>
+        </tr></thead>
+        <tbody class="nhsuk-table__body">
+          {% for p in results %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{ p.last_name }}, {{ p.first_name }}</td>
+              <td class="nhsuk-table__cell">{{ p.nhs_number }}</td>
+              <td class="nhsuk-table__cell">{{ p.scd_genotype }}</td>
+              <td class="nhsuk-table__cell"><a class="nhsuk-link" href="/patients/{{ p.id }}/crisis">Crisis view</a> · <a class="nhsuk-link" href="/patients/{{ p.id }}">Open</a></td>
+            </tr>
+          {% else %}
+            <tr class="nhsuk-table__row"><td class="nhsuk-table__cell" colspan="4">No patients found.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

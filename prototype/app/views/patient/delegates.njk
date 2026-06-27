@@ -1,0 +1,51 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="/me">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">People who can see my plan</h1>
+      <p class="nhsuk-body">You can let a trusted person — such as your next of kin — view your care
+      plan. They must first create a delegate account. You can remove their access at any time.</p>
+
+      {% if error %}<div class="nhsuk-error-summary" role="alert"><p class="nhsuk-body">{{ error }}</p></div>{% endif %}
+
+      <table class="nhsuk-table">
+        <thead class="nhsuk-table__head"><tr>
+          <th class="nhsuk-table__header" scope="col">Name</th>
+          <th class="nhsuk-table__header" scope="col">Relationship</th>
+          <th class="nhsuk-table__header" scope="col">Status</th>
+          <th class="nhsuk-table__header" scope="col">Action</th>
+        </tr></thead>
+        <tbody class="nhsuk-table__body">
+          {% for l in links %}
+            <tr class="nhsuk-table__row">
+              <td class="nhsuk-table__cell">{{ l.delegate_name }}<br><span class="nhsuk-u-secondary-text-color">{{ l.delegate_email }}</span></td>
+              <td class="nhsuk-table__cell">{{ l.relationship }}</td>
+              <td class="nhsuk-table__cell">{{ l.status }}</td>
+              <td class="nhsuk-table__cell">
+                {% if l.status == 'active' %}
+                  <form method="post" action="/me/delegates/{{ l.id }}/revoke">
+                    <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+                    <button class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" type="submit">Remove</button>
+                  </form>
+                {% else %}—{% endif %}
+              </td>
+            </tr>
+          {% else %}
+            <tr class="nhsuk-table__row"><td class="nhsuk-table__cell" colspan="4">No one has access yet.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <h2 class="nhsuk-heading-m">Add someone</h2>
+      <form method="post" action="/me/delegates" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group"><label class="nhsuk-label" for="email">Their delegate account email</label>
+          <input class="nhsuk-input" id="email" name="email" type="email" /></div>
+        <div class="nhsuk-form-group"><label class="nhsuk-label" for="relationship">Relationship</label>
+          <input class="nhsuk-input" id="relationship" name="relationship" type="text" placeholder="e.g. next of kin" /></div>
+        <button class="nhsuk-button" type="submit">Give access</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

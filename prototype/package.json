@@ -1,0 +1,37 @@
+{
+  "name": "digital-sickle-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Functional prototype of a personalised digital sickle cell care plan (synthetic data only).",
+  "license": "MIT",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node app/server.js",
+    "dev": "node --watch app/server.js",
+    "migrate": "node app/db/migrate.js",
+    "seed": "node app/db/seed.js",
+    "test": "node --test --test-force-exit"
+  },
+  "dependencies": {
+    "argon2": "^0.41.1",
+    "better-sqlite3": "^12.4.1",
+    "better-sqlite3-session-store": "^0.1.0",
+    "cookie-parser": "^1.4.7",
+    "csrf-csrf": "^4.0.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.0.0",
+    "multer": "^2.0.0",
+    "nhsuk-frontend": "^10.3.1",
+    "nunjucks": "^3.2.4",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2"
+  }
+}

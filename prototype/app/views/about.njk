@@ -1,0 +1,28 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">About this prototype</h1>
+      <p class="nhsuk-body">
+        This is a functional prototype built for the NHS Race &amp; Health Observatory Digital
+        Sickle Cell programme. Its purpose is to make the proposed service tangible for the
+        Memorandum of Understanding and the tender — not to be the production system.
+      </p>
+      <h2 class="nhsuk-heading-m">What it demonstrates</h2>
+      <ul class="nhsuk-list nhsuk-list--bullet">
+        <li>Role-based access for clinicians, patients and nominated delegates.</li>
+        <li>A structured, personalised care plan and an at-a-glance <strong>acute crisis view</strong>.</li>
+        <li>Research consent capture, an episode Friends &amp; Family Test and free-text feedback.</li>
+        <li>An audit trail and a patient-facing log of who has accessed their plan — by design, to boost accountability and trust.</li>
+      </ul>
+      <h2 class="nhsuk-heading-m">What production would add</h2>
+      <p class="nhsuk-body">
+        NHS Care Identity (CIS2) sign-in for clinicians, assured information governance (DPIA),
+        NHS-approved cloud hosting, real identity verification and messaging, antivirus-scanned
+        uploads, and clinical safety assurance. These are deliberately left to the appointed
+        delivery partner.
+      </p>
+      <p class="nhsuk-body">The source code is open. <a class="nhsuk-link" href="/accessibility">Accessibility statement</a>.</p>
+    </div>
+  </div>
+{% endblock %}

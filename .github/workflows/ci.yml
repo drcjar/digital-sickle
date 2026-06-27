@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  prototype-tests:
+    name: Prototype — tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: prototype/package-lock.json
+      - run: npm ci
+      - run: npm test
+
+  accessibility:
+    name: Prototype — accessibility (pa11y)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: prototype/package-lock.json
+      - run: npm ci
+      - name: Start server
+        run: |
+          npm start &
+          npx wait-on http://localhost:3000 --timeout 60000
+      - name: Run pa11y on public pages
+        run: |
+          npx pa11y-ci --threshold 0 \
+            http://localhost:3000/ \
+            http://localhost:3000/login \
+            http://localhost:3000/about \
+            http://localhost:3000/accessibility

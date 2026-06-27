@@ -1,0 +1,27 @@
+<header class="nhsuk-header" role="banner">
+  <div class="nhsuk-header__container nhsuk-width-container">
+    <div class="nhsuk-header__logo">
+      <a class="nhsuk-header__link" href="/" aria-label="{{ serviceName }} home">
+        <span class="nhsuk-header__service-name">{{ serviceName }}</span>
+      </a>
+    </div>
+    <nav class="nhsuk-navigation-container" aria-label="Primary navigation">
+      <ul class="nhsuk-header__navigation-list nhsuk-width-container" style="display:flex; gap:1rem; list-style:none; padding:0;">
+        {% if currentUser %}
+          {% if currentUser.role == 'patient' %}
+            <li><a class="nhsuk-header__navigation-link" href="/me">My care plan</a></li>
+            <li><a class="nhsuk-header__navigation-link" href="/me/access-log">Who has accessed</a></li>
+          {% elif currentUser.role == 'clinician' %}
+            <li><a class="nhsuk-header__navigation-link" href="/patients">Find a patient</a></li>
+            <li><a class="nhsuk-header__navigation-link" href="/audit">Audit</a></li>
+          {% elif currentUser.role == 'delegate' %}
+            <li><a class="nhsuk-header__navigation-link" href="/shared">Shared with me</a></li>
+          {% endif %}
+          <li><a class="nhsuk-header__navigation-link" href="/logout">Sign out ({{ currentUser.full_name or currentUser.email }})</a></li>
+        {% else %}
+          <li><a class="nhsuk-header__navigation-link" href="/login">Sign in</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</header>

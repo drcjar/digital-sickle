@@ -1,0 +1,25 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Sign in</h1>
+      {% include "partials/error-summary.njk" %}
+      <form method="post" action="/login" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <input type="hidden" name="next" value="{{ next }}" />
+        <div class="nhsuk-form-group {% if errors.email %}nhsuk-form-group--error{% endif %}">
+          <label class="nhsuk-label" for="email">Email address</label>
+          {% if errors.email %}<span class="nhsuk-error-message">{{ errors.email }}</span>{% endif %}
+          <input class="nhsuk-input" id="email" name="email" type="email" autocomplete="username" value="{{ values.email or '' }}" />
+        </div>
+        <div class="nhsuk-form-group {% if errors.password %}nhsuk-form-group--error{% endif %}">
+          <label class="nhsuk-label" for="password">Password</label>
+          {% if errors.password %}<span class="nhsuk-error-message">{{ errors.password }}</span>{% endif %}
+          <input class="nhsuk-input" id="password" name="password" type="password" autocomplete="current-password" />
+        </div>
+        <button class="nhsuk-button" type="submit">Sign in</button>
+      </form>
+      <p class="nhsuk-body">No account? <a class="nhsuk-link" href="/register">Create one</a>.</p>
+    </div>
+  </div>
+{% endblock %}

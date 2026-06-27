@@ -1,0 +1,41 @@
+{% extends "layouts/base.njk" %}
+{% block beforeContent %}<a class="nhsuk-back-link nhsuk-u-margin-top-4" href="/me">Back</a>{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">Feedback on an acute painful episode</h1>
+      <form method="post" action="/me/feedback" novalidate>
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="episode_date">Date of the episode (optional)</label>
+          <input class="nhsuk-input nhsuk-input--width-10" id="episode_date" name="episode_date" type="date" />
+        </div>
+        <div class="nhsuk-form-group">
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend">Overall, how was your care during this episode? (Friends &amp; Family Test)</legend>
+            <div class="nhsuk-radios">
+              {% for opt in [['very_good','Very good'],['good','Good'],['neither','Neither good nor poor'],['poor','Poor'],['very_poor','Very poor'],['dont_know','Don’t know']] %}
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="fft_{{ opt[0] }}" name="fft_rating" type="radio" value="{{ opt[0] }}" />
+                  <label class="nhsuk-label nhsuk-radios__label" for="fft_{{ opt[0] }}">{{ opt[1] }}</label>
+                </div>
+              {% endfor %}
+            </div>
+          </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="free_text">Anything you would like to tell us (optional)</label>
+          <textarea class="nhsuk-textarea" id="free_text" name="free_text" rows="4"></textarea>
+        </div>
+        <button class="nhsuk-button" type="submit">Submit feedback</button>
+      </form>
+
+      {% if history.length %}
+        <h2 class="nhsuk-heading-m">Your previous feedback</h2>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          {% for f in history %}<li>{{ f.episode_date or f.submitted_at }} — {{ (f.fft_rating or '') | replace("_", " ") }}. {{ f.free_text }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

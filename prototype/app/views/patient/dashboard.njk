@@ -1,0 +1,52 @@
+{% extends "layouts/base.njk" %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      <h1 class="nhsuk-heading-l">My care plan</h1>
+      <p class="nhsuk-body">Hello {{ patient.first_name }}. This is your personalised sickle cell care plan.</p>
+
+      <div class="nhsuk-card">
+        <div class="nhsuk-card__content">
+          <h2 class="nhsuk-card__heading">Acute crisis plan</h2>
+          <p class="nhsuk-card__description">The at-a-glance plan clinicians see during a crisis.</p>
+          <a class="nhsuk-button" href="/me/care-plan">Edit my care plan</a>
+        </div>
+      </div>
+
+      <ul class="nhsuk-list nhsuk-list--bullet nhsuk-u-margin-top-4">
+        <li><a class="nhsuk-link" href="/me/consent">Research consent</a>
+          — {% if consent and (consent.consent_contact_research or consent.consent_secondary_use) %}recorded{% else %}not yet given{% endif %}</li>
+        <li><a class="nhsuk-link" href="/me/feedback">Give feedback on an episode (Friends &amp; Family Test)</a></li>
+        <li><a class="nhsuk-link" href="/me/delegates">People who can see my plan</a></li>
+        <li><a class="nhsuk-link" href="/me/access-log">Who has accessed my care plan</a></li>
+      </ul>
+
+      <h2 class="nhsuk-heading-m">Documents</h2>
+      {% if documents.length %}
+        <ul class="nhsuk-list nhsuk-list--bullet">
+          {% for d in documents %}<li><a class="nhsuk-link" href="/documents/{{ d.id }}">{{ d.original_filename }}</a></li>{% endfor %}
+        </ul>
+      {% else %}<p class="nhsuk-body">No documents uploaded.</p>{% endif %}
+      <form method="post" action="/me/documents" enctype="multipart/form-data">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label" for="document">Upload a care plan PDF</label>
+          <input class="nhsuk-file-upload" id="document" name="document" type="file" accept="application/pdf" />
+        </div>
+        <button class="nhsuk-button nhsuk-button--secondary" type="submit">Upload</button>
+      </form>
+
+      <h2 class="nhsuk-heading-m">Contact details</h2>
+      <form method="post" action="/me/contact">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}" />
+        <div class="nhsuk-form-group"><label class="nhsuk-label" for="phone">Phone</label>
+          <input class="nhsuk-input" id="phone" name="phone" value="{{ patient.phone or '' }}" /></div>
+        <div class="nhsuk-form-group"><label class="nhsuk-label" for="email">Email</label>
+          <input class="nhsuk-input" id="email" name="email" value="{{ patient.email or '' }}" /></div>
+        <div class="nhsuk-form-group"><label class="nhsuk-label" for="postcode">Postcode</label>
+          <input class="nhsuk-input" id="postcode" name="postcode" value="{{ patient.postcode or '' }}" /></div>
+        <button class="nhsuk-button nhsuk-button--secondary" type="submit">Save contact details</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
