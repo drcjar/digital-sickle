@@ -1,0 +1,28 @@
+# systemd unit for the Digital Sickle Cell Care Plan prototype.
+# Install: sudo cp digital-sickle.service /etc/systemd/system/ && sudo systemctl daemon-reload
+# See ../../docs/deployment.md for the full runbook.
+
+[Unit]
+Description=Digital Sickle Cell Care Plan prototype (synthetic data only)
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/digital-sickle/prototype
+EnvironmentFile=/home/ubuntu/digital-sickle/prototype/.env
+ExecStart=/usr/bin/node app/server.js
+Restart=on-failure
+RestartSec=5
+
+# Modest hardening — appropriate for a small shared box.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+# Allow writes only to the app's data directory (SQLite DB + uploads).
+ReadWritePaths=/home/ubuntu/digital-sickle/prototype/data
+# Keep memory in check on a 512 MB instance.
+MemoryMax=200M
+
+[Install]
+WantedBy=multi-user.target

@@ -1,32 +1,181 @@
 ---
 layout: base.njk
-title: Tender
-description: How digital delivery partners can take part in building the service.
+title: Invitation to tender
+description: Invitation to tender for the build of the Digital Sickle Cell Care Plan service for the NHS Race & Health Observatory.
 ---
-<h1 class="nhsuk-heading-xl">Tender</h1>
+<h1 class="nhsuk-heading-xl">Invitation to tender</h1>
 
 <p class="nhsuk-lead-paragraph">
-  The Observatory will appoint a digital delivery partner to build the production service. This page
-  will host the invitation to tender and how to express interest.
+  The {{ site.owner }} invites proposals from digital delivery partners to build a new digital
+  service for personalised sickle cell care plans, for use during acute painful crises.
 </p>
 
-<h2 class="nhsuk-heading-l">What we are looking for</h2>
+<div class="nhsuk-warning-callout">
+  <h2 class="nhsuk-warning-callout__label"><span role="text"><span class="nhsuk-u-visually-hidden">Important: </span>Draft</span></h2>
+  <p>This is a <strong>draft</strong> invitation to tender published for transparency. Dates, the
+  budget envelope, the procurement route and contractual terms marked <em>[to be confirmed]</em>
+  will be finalised by the Observatory before formal release. It is not yet a call for bids.</p>
+</div>
+
+<div class="nhsuk-card nhsuk-card--feature">
+  <div class="nhsuk-card__content nhsuk-card__content--feature">
+    <h2 class="nhsuk-card__heading nhsuk-card__heading--feature">Interested? Register early</h2>
+    <p class="nhsuk-card__description">
+      You don’t need to wait for the formal tender. If your team might want to deliver this, tell us
+      now and we’ll make sure you hear the moment it opens — including the dates, budget and how to
+      bid. A sentence or two about who you are is plenty.
+    </p>
+    <p class="nhsuk-body">
+      Email <strong><a class="nhsuk-link" href="mailto:carl.reynolds@nhsrho.org">carl.reynolds@nhsrho.org</a></strong> with the subject
+      “Digital Sickle Cell Care Plan — expression of interest”, or open an issue in the
+      <a class="nhsuk-link" href="{{ site.repoUrl }}">project repository</a>. Registering interest
+      places you under no obligation and does not affect any future evaluation.
+    </p>
+  </div>
+</div>
+
+<h2 class="nhsuk-heading-l">1. About the programme</h2>
+<p class="nhsuk-body">
+  People with sickle cell disease do not reliably receive timely analgesia during acute painful
+  episodes in the NHS, and too often experience poor care. The Observatory’s 2022–23 discovery
+  research with University Hospitals Bristol and Weston found that personalised digital care plans
+  show real promise for improving access to, experience of, and accountability of care — but have
+  not been widely tested or adopted. This programme commissions the build of that service and
+  pilots it through an NHS partner. See <a class="nhsuk-link" href="{{ '/case/' | url }}">the case</a>
+  and <a class="nhsuk-link" href="{{ '/service/' | url }}">what we’re building</a>.
+</p>
+
+<h2 class="nhsuk-heading-l">2. What we are asking you to build</h2>
+<p class="nhsuk-body">A production-grade digital service that lets authorised users create, hold,
+update and view a personalised sickle cell care plan, with the acute crisis view at its heart.
+Core capabilities include:</p>
 <ul class="nhsuk-list nhsuk-list--bullet">
-  <li>A partner experienced in user-centred, accessible public-service delivery (in the spirit of the GOV.UK and NHS service standards).</li>
-  <li>Mainstream, modern approaches to digital delivery that work well outside the NHS, applied at pace.</li>
-  <li>Genuine co-production with patients, families and clinical specialists in haematology and emergency care.</li>
-  <li>Working in the open, with open-source outputs.</li>
+  <li>Role-based access for <strong>healthcare professionals, patients, and nominated delegates</strong> (e.g. next of kin).</li>
+  <li>A structured care plan and an at-a-glance, printable <strong>acute crisis view</strong> (analgesia and opioid tolerance, allergies and adverse reactions, baseline observations, escalation, named consultant, pregnancy flag, emergency contacts).</li>
+  <li>Document upload and viewing alongside the structured plan.</li>
+  <li>Research consent capture, an episode Friends &amp; Family Test, and free-text feedback.</li>
+  <li>A full audit trail and a <strong>patient-facing access log</strong> — accountability and transparency built into the product.</li>
+  <li>Availability to authorised users wherever care is delivered, including non-specialist settings.</li>
+</ul>
+<p class="nhsuk-body">
+  A working <strong>prototype</strong> and a detailed requirements set already exist and are open
+  source. We expect you to build on the learning — not necessarily the code — to deliver a robust,
+  assured service. Explore it in the
+  <a class="nhsuk-link" href="{{ site.repoUrl }}">project repository</a>.
+</p>
+
+<h2 class="nhsuk-heading-l">3. Assurance and technical requirements</h2>
+<p class="nhsuk-body">The production service must meet NHS and public-sector standards, including:</p>
+<ul class="nhsuk-list nhsuk-list--bullet">
+  <li><strong>Identity:</strong> NHS Care Identity (CIS2) sign-in for clinicians; assured, proportionate identity for patients and delegates.</li>
+  <li><strong>Information governance:</strong> Data Protection Impact Assessment, data protection by design, and compliance with UK GDPR and NHS data security standards (DSPT).</li>
+  <li><strong>Clinical safety:</strong> DCB0129 / DCB0160 clinical risk management, with a named Clinical Safety Officer.</li>
+  <li><strong>Accessibility:</strong> WCAG 2.2 AA, meeting the public sector accessibility regulations, evidenced by audit.</li>
+  <li><strong>Hosting &amp; security:</strong> NHS-approved cloud hosting, penetration testing, and antivirus-scanned uploads.</li>
+  <li><strong>Standards alignment:</strong> the <a class="nhsuk-link" href="https://service-manual.nhs.uk/standards-and-technology/service-standard">NHS service standard</a> and the NHS design system.</li>
+  <li><strong>Interoperability:</strong> a clear path toward integration with clinical systems and, where appropriate, 111/999 and the shared care record.</li>
 </ul>
 
-<h2 class="nhsuk-heading-l">Scope</h2>
+<h2 class="nhsuk-heading-l">4. How we work</h2>
+<ul class="nhsuk-list nhsuk-list--bullet">
+  <li><strong>User-centred and agile</strong> — iterative delivery in discovery/alpha/beta phases, evidenced by user research.</li>
+  <li><strong>Co-production</strong> — meaningful, paid involvement of people with sickle cell, families, and haematology and emergency care clinicians.</li>
+  <li><strong>In the open</strong> — open-source code, open decisions, and outputs licensed for maximum adoption.</li>
+  <li><strong>At pace</strong> — mainstream, modern delivery approaches that work well outside the NHS.</li>
+</ul>
+
+<h2 class="nhsuk-heading-l">5. Indicative timeline</h2>
+<table class="nhsuk-table">
+  <caption class="nhsuk-table__caption">Aligned to the programme’s Memorandum of Understanding</caption>
+  <thead class="nhsuk-table__head">
+    <tr>
+      <th class="nhsuk-table__header" scope="col">Phase</th>
+      <th class="nhsuk-table__header" scope="col">Period</th>
+      <th class="nhsuk-table__header" scope="col">Focus</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Partnership &amp; tender</td><td class="nhsuk-table__cell">Jun – Sept 2026</td><td class="nhsuk-table__cell">MoU, appoint delivery partner</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Digital service build</td><td class="nhsuk-table__cell">Oct 2026 – May 2027</td><td class="nhsuk-table__cell">Discovery, alpha, private beta build</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Pilot &amp; iteration</td><td class="nhsuk-table__cell">Jun 2027 – Sept 2028</td><td class="nhsuk-table__cell">Private beta with selected patients; evaluate and iterate</td></tr>
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-l">6. Budget and commercial</h2>
 <p class="nhsuk-body">
-  A production service for personalised sickle cell care plans, accessible to sickle cell services,
-  patients and medics in acute settings — including NHS Care Identity (CIS2) sign-in, assured
-  information governance, NHS-approved hosting, and clinical safety assurance. A working prototype
-  and full requirements are available in the project repository.
+  The programme is supported by match funding from the NHS partner, paid to the Observatory, which
+  contracts for delivery. The indicative budget envelope for the build and private beta is
+  <strong>[to be confirmed]</strong>. Proposals should present clear value for money and a costed,
+  phased plan. The procurement will run via <strong>[to be confirmed — e.g. an appropriate public
+  procurement framework]</strong>.
 </p>
 
-<div class="nhsuk-inset-text">
-  <p>Interested in delivering this? See <a class="nhsuk-link" href="{{ '/contact/' | url }}">Contact</a>.
-  The prototype and requirements are in the <a class="nhsuk-link" href="{{ site.repoUrl }}">project repository</a>.</p>
-</div>
+<h2 class="nhsuk-heading-l">7. Who we are looking for</h2>
+<ul class="nhsuk-list nhsuk-list--bullet">
+  <li>Demonstrable experience delivering accessible, user-centred public or health services to the NHS or GOV.UK service standards.</li>
+  <li>A track record of secure, assured delivery (IG, clinical safety, identity) and of working in the open.</li>
+  <li>Genuine capability and commitment to co-production with seldom-heard communities.</li>
+  <li>A multidisciplinary team (user research, design, engineering, delivery, clinical safety).</li>
+</ul>
+
+<h2 class="nhsuk-heading-l">8. How to respond</h2>
+<p class="nhsuk-body">Proposals should be concise and address:</p>
+<ol class="nhsuk-list nhsuk-list--number">
+  <li>Your understanding of the problem and the people it affects.</li>
+  <li>Your proposed approach, phasing and ways of working (including co-production and accessibility).</li>
+  <li>How you will meet the assurance and technical requirements in section 3.</li>
+  <li>Relevant experience and case studies, and the team you would assign.</li>
+  <li>A costed, phased plan and how you ensure value for money.</li>
+  <li>Risks and how you would manage them.</li>
+</ol>
+
+<h2 class="nhsuk-heading-l">9. How proposals will be evaluated</h2>
+<p class="nhsuk-body">Indicative award criteria (final weightings to be confirmed):</p>
+<table class="nhsuk-table">
+  <thead class="nhsuk-table__head">
+    <tr>
+      <th class="nhsuk-table__header" scope="col">Criterion</th>
+      <th class="nhsuk-table__header" scope="col">Indicative weighting</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Approach &amp; methodology (user-centred, agile, in the open)</td><td class="nhsuk-table__cell">30%</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Co-production &amp; accessibility</td><td class="nhsuk-table__cell">15%</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Technical &amp; assurance capability (IG, clinical safety, identity, security)</td><td class="nhsuk-table__cell">20%</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Relevant experience &amp; team</td><td class="nhsuk-table__cell">15%</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Price &amp; value for money</td><td class="nhsuk-table__cell">20%</td></tr>
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-l">10. Procurement timetable</h2>
+<table class="nhsuk-table">
+  <thead class="nhsuk-table__head">
+    <tr>
+      <th class="nhsuk-table__header" scope="col">Milestone</th>
+      <th class="nhsuk-table__header" scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody class="nhsuk-table__body">
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Invitation to tender published</td><td class="nhsuk-table__cell">[to be confirmed]</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Deadline for clarification questions</td><td class="nhsuk-table__cell">[to be confirmed]</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Deadline for proposals</td><td class="nhsuk-table__cell">[to be confirmed]</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Supplier presentations (if held)</td><td class="nhsuk-table__cell">[to be confirmed]</td></tr>
+    <tr class="nhsuk-table__row"><td class="nhsuk-table__cell">Award and contract start</td><td class="nhsuk-table__cell">[to be confirmed]</td></tr>
+  </tbody>
+</table>
+
+<h2 class="nhsuk-heading-l">11. Terms</h2>
+<ul class="nhsuk-list nhsuk-list--bullet">
+  <li><strong>Intellectual property:</strong> outputs are intended to be fundamentally public domain, published under licences designed to maximise sharing and adoption. See <a class="nhsuk-link" href="{{ '/governance/' | url }}">governance</a>.</li>
+  <li><strong>Data protection:</strong> the contract will include provisions ensuring full compliance with UK GDPR and NHS data security requirements.</li>
+  <li><strong>Transparency:</strong> we expect delivery in the open, with regular show-and-tells and published code.</li>
+</ul>
+
+<h2 class="nhsuk-heading-l">12. Questions and how to express interest</h2>
+<p class="nhsuk-body">
+  Clarification questions and expressions of interest should be sent to
+  <strong><a class="nhsuk-link" href="mailto:carl.reynolds@nhsrho.org">carl.reynolds@nhsrho.org</a></strong>. General enquiries about the programme can go
+  to the {{ site.owner }} via <a class="nhsuk-link" href="https://www.nhsrho.org/">nhsrho.org</a>,
+  or by opening an issue in the <a class="nhsuk-link" href="{{ site.repoUrl }}">project repository</a>.
+  See also our <a class="nhsuk-link" href="{{ '/contact/' | url }}">contact page</a>.
+</p>

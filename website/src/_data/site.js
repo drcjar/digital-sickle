@@ -3,6 +3,7 @@ module.exports = {
   owner: 'NHS Race & Health Observatory',
   // Update once the repository location is confirmed.
   repoUrl: 'https://github.com/drcjar/digital-sickle',
+  prototypeUrl: 'https://digital-sickle.carlreynolds.net',
   nav: [
     { text: 'Home', url: '/' },
     { text: 'The case', url: '/case/' },
