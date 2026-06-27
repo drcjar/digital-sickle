@@ -41,9 +41,6 @@ jobs:
           npm start &
           npx wait-on http://localhost:3000 --timeout 60000
       - name: Run pa11y on public pages
-        run: |
-          npx pa11y-ci --threshold 0 \
-            http://localhost:3000/ \
-            http://localhost:3000/login \
-            http://localhost:3000/about \
-            http://localhost:3000/accessibility
+        # URLs and Chrome launch args (incl. --no-sandbox for CI runners) come
+        # from prototype/.pa11yci
+        run: npx pa11y-ci

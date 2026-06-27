@@ -16,6 +16,23 @@
   padding-left: 16px;
   margin: 16px 0;
 }
+/* Header + nav: white text on the NHS blue bar to meet colour contrast. */
+.nhsuk-header {
+  background-color: #005eb8;
+}
+.nhsuk-header__service-name,
+.nhsuk-header__link,
+.nhsuk-navigation__link {
+  color: #fff;
+}
+.nhsuk-header__link:visited,
+.nhsuk-navigation__link:visited,
+.nhsuk-header__link:hover,
+.nhsuk-navigation__link:hover,
+.nhsuk-header__link:focus-visible,
+.nhsuk-navigation__link:focus-visible {
+  color: #fff;
+}
 .nhsuk-navigation__link[aria-current='page'] {
   font-weight: 700;
   text-decoration: underline;

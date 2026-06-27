@@ -1,5 +1,24 @@
 /* Small project-specific styles layered on top of nhsuk-frontend. */
 
+/* Header: white text on the NHS blue bar (our custom links would otherwise
+   inherit the global link colour and fail colour contrast). */
+.nhsuk-header {
+  background-color: #005eb8;
+}
+.nhsuk-header__service-name,
+.nhsuk-header__link,
+.nhsuk-header__navigation-link {
+  color: #fff;
+}
+.nhsuk-header__link:visited,
+.nhsuk-header__navigation-link:visited,
+.nhsuk-header__link:hover,
+.nhsuk-header__navigation-link:hover,
+.nhsuk-header__link:focus-visible,
+.nhsuk-header__navigation-link:focus-visible {
+  color: #fff;
+}
+
 .prototype-banner {
   background: #d5281b; /* nhsuk-red */
   color: #fff;
