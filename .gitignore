@@ -14,3 +14,10 @@ publications/*.pdf
 # Logs & OS cruft
 *.log
 .DS_Store
+
+# Outreach: keep target lists and tailored, named materials private
+targets.txt
+outreach/tailored/
+
+# Third-party UCP materials (copyright) — not redistributed
+ucp/
