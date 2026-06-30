@@ -21,3 +21,6 @@ outreach/tailored/
 
 # Third-party UCP materials (copyright) — not redistributed
 ucp/
+
+# Confidential signed funder contract — never commit
+vertex-contract/

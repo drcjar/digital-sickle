@@ -52,11 +52,8 @@ begin using the service and will test its effectiveness in improving care.
 - a documented, portable, co-produced care record accessible to authorised clinicians; and
 - evidence and learning to support wider NHS adoption.
 
-1.5 **Initial phase and stand-alone output.** The committed scope of this MOU is an initial phase
-of the programme, designed to be completed by **31 March 2027**. The initial phase will deliver a
-**stand-alone output**: a report documenting the work completed, the service developed, and the
-learning generated, of value in its own right whether or not the programme continues beyond that
-date.
+1.5 **Initial phase and deliverable.** The committed scope of this MOU is an initial phase
+of the programme, designed to be completed by **31 March 2027**. The initial phase will deliver a **stand-alone, workable digital service**: a functioning, deployable digital sickle cell care plan service, developed in the open, that is of value in its own right whether or not the programme continues beyond that date.
 
 1.6 **Match funding.** The Trust will provide match funding of **£200,000** and institutional
 support for the initial phase. This funding will be paid to the Observatory, enabling a single

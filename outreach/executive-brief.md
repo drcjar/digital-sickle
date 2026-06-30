@@ -87,20 +87,18 @@ would provide:
 
 We would begin with a **Memorandum of Understanding for this initial phase**. The Observatory leads
 the programme, retains overall control, and conducts the procurement, commercial, technical and
-legal work. This is a deliberately **bounded, time-defined and low-risk** commitment: it delivers a
-usable service and a **stand-alone report** by 31 March 2027, so the work has lasting value whether
+legal work. This is a deliberately **bounded, time-defined and low-risk** commitment: it delivers a **stand-alone, workable digital service** by 31 March 2027, so the work has lasting value whether
 or not it continues. Any continuation beyond that date would be subject to a further agreement and
 confirmed onward funding.
 
 ## Timeline
 
-We propose a defined initial phase that completes by **31 March 2027** and produces a stand-alone
-output. Work beyond that date is subject to confirmed onward funding.
+We propose a defined initial phase that completes by **31 March 2027** and delivers a working digital service. Work beyond that date is subject to confirmed onward funding.
 
 | Phase | Period | Focus |
 |-------|--------|-------|
 | Partnership and discovery | 2026 | Agree partnership, set-up, user research and design |
-| Build and initial beta | to 31 March 2027 | Build the service, begin a private beta, deliver a stand-alone report on the work and learning |
+| Build and initial beta | to 31 March 2027 | Build and deploy a working digital service, and begin a private beta with selected patients |
 | Continuation | beyond March 2027 (subject to funding) | Wider pilot, iteration and national spread |
 
 ## The proof
@@ -119,6 +117,11 @@ leads to discuss partnership.
 **Dr Carl Reynolds**, Clinical Advisor (carl.reynolds@nhsrho.org)
 
 **Professor Habib Naqvi MBE**, Chief Executive, NHS Race & Health Observatory
+
+## Funding
+
+Phase 1 of this programme was supported by a grant from Vertex Pharmaceuticals. Vertex had no role in
+the design, content or delivery of the programme.
 
 ---
 
