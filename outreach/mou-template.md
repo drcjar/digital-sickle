@@ -21,7 +21,7 @@ where expressly stated, this MOU is **not intended to be legally binding**.
 ## Background
 
 People with sickle cell disease do not reliably receive timely analgesia during acute painful
-episodes in the NHS, and too often experience poor care — a failure that is both a patient-safety
+episodes in the NHS, and too often experience poor care, a failure that is both a patient-safety
 risk and an expression of structural inequality in the system.
 
 In research carried out by the Observatory in 2022–23, in collaboration with University Hospitals
@@ -101,8 +101,8 @@ and programme-delivery work required to issue and manage the delivery tender; an
 technical and legal infrastructure to launch the service.
 
 6.2 **The Trust** provides a clinical setting in which the pilot can be operated and evaluated. This
-requires the support of key clinical staff — particularly in **Haematology** and **Accident &
-Emergency** — and is likely to require IT support to assist with integration and workflow
+requires the support of key clinical staff, particularly in **Haematology** and **Accident &
+Emergency**, and is likely to require IT support to assist with integration and workflow
 optimisation, so as to minimise additional burden on clinical teams.
 
 6.3 **The delivery partner** (once appointed) builds the production service to modern digital,
