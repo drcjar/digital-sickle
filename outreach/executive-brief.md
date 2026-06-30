@@ -77,23 +77,31 @@ service.** Appendix A sets this out in full.
 
 ## The ask
 
-We are seeking a strategic partner that delivers sickle cell and acute care and can provide:
+We are seeking a strategic partner that delivers sickle cell and acute care to join us in an
+**initial phase that completes by 31 March 2027** and delivers a stand-alone output. The partner
+would provide:
 
 - **Match funding of £200,000**, paid to the Observatory, which contracts for delivery; and
-- **Institutional support** for a private beta, principally the engagement of clinical staff in
-  **Haematology** and **Accident & Emergency**, and IT support for workflow integration.
+- **Institutional support** for the initial private beta, principally the engagement of clinical
+  staff in **Haematology** and **Accident & Emergency**, and IT support for workflow integration.
 
-We would begin with a **Memorandum of Understanding** including a financial commitment, with payment
-falling due once we have awarded the delivery tender. The Observatory leads the programme, retains
-overall control, and conducts the procurement, commercial, technical and legal work.
+We would begin with a **Memorandum of Understanding for this initial phase**. The Observatory leads
+the programme, retains overall control, and conducts the procurement, commercial, technical and
+legal work. This is a deliberately **bounded, time-defined and low-risk** commitment: it delivers a
+usable service and a **stand-alone report** by 31 March 2027, so the work has lasting value whether
+or not it continues. Any continuation beyond that date would be subject to a further agreement and
+confirmed onward funding.
 
 ## Timeline
 
+We propose a defined initial phase that completes by **31 March 2027** and produces a stand-alone
+output. Work beyond that date is subject to confirmed onward funding.
+
 | Phase | Period | Focus |
 |-------|--------|-------|
-| Partnership development | Jun – Sept 2026 | MoU, appoint delivery partner |
-| Digital service build | Oct 2026 – May 2027 | Discovery, alpha, private-beta build |
-| Pilot and iteration | Jun 2027 – Sept 2028 | Private beta with selected patients; evaluate and iterate |
+| Partnership and discovery | 2026 | Agree partnership, set-up, user research and design |
+| Build and initial beta | to 31 March 2027 | Build the service, begin a private beta, deliver a stand-alone report on the work and learning |
+| Continuation | beyond March 2027 (subject to funding) | Wider pilot, iteration and national spread |
 
 ## The proof
 

@@ -52,18 +52,25 @@ begin using the service and will test its effectiveness in improving care.
 - a documented, portable, co-produced care record accessible to authorised clinicians; and
 - evidence and learning to support wider NHS adoption.
 
-1.5 **Match funding.** The Trust will provide match funding of **£200,000** and institutional
-support for the private beta. This funding will be paid to the Observatory, enabling a single
+1.5 **Initial phase and stand-alone output.** The committed scope of this MOU is an initial phase
+of the programme, designed to be completed by **31 March 2027**. The initial phase will deliver a
+**stand-alone output**: a report documenting the work completed, the service developed, and the
+learning generated, of value in its own right whether or not the programme continues beyond that
+date.
+
+1.6 **Match funding.** The Trust will provide match funding of **£200,000** and institutional
+support for the initial phase. This funding will be paid to the Observatory, enabling a single
 institution to issue commercial contracts for delivery.
 
 ## 2. Duration
 
 2.1 This MOU commences on the date of the last signature below and remains in force until
-**30 September 2028**, subject to earlier termination in accordance with this MOU.
+**31 March 2027**, subject to earlier termination in accordance with this MOU.
 
-2.2 The MOU will be reviewed by the parties within **12 months** of commencement.
+2.2 The parties will review progress at a suitable point during the term.
 
-2.3 The MOU may be extended by agreement of all parties.
+2.3 Continuation of the programme beyond 31 March 2027 is subject to a further written agreement
+between the parties and to confirmation of the Observatory's onward funding.
 
 ## 3. Financial arrangements
 
