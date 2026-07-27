@@ -24,3 +24,6 @@ ucp/
 
 # Confidential signed funder contract — never commit
 vertex-contract/
+
+# Meeting decks: named, trust-specific material stays private
+deck/
